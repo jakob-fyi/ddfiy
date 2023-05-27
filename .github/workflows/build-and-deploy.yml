@@ -1,0 +1,40 @@
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    name: Fasching
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get latest code
+        uses: actions/checkout@v3
+
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build App
+        run: npm run ci:build
+
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: ${{ secrets.DEPLOYMENT_FTP_HOST }}
+          username: ${{ secrets.DEPLOYMENT_FTP_USERNAME }}
+          password: ${{ secrets.DEPLOYMENT_FTP_PASSWORD }}
+          local-dir: ./dist/
+          dangerous-clean-slate: true
