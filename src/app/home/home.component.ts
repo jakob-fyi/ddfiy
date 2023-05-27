@@ -59,6 +59,7 @@ export class HomeComponent {
     await this.data.getAlbums();
     this.data.categorizeAlbums();
     this.data.useFilter();
+    this.data.selectRandom();
     this.state = 'ready';
   }
 

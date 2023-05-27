@@ -68,7 +68,15 @@ export class DataService {
   private apiEndpoint = 'https://api.spotify.com/v1';
   private ddfArtistId = '3meJIgRw7YleJrmbpbJK6S';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    const typeFilter = localStorage.getItem('typeFilter');
+
+    if (!typeFilter) {
+      localStorage.setItem('typeFilter', JSON.stringify(this.typeFilter));
+    } else {
+      this.typeFilter = JSON.parse(typeFilter);
+    }
+  }
 
   public async getAlbums(offset: number = 0): Promise<void> {
 
@@ -137,10 +145,9 @@ export class DataService {
   }
 
   public toggleTypeFilter(typeFilter: any) {
-
     typeFilter.enabled = !typeFilter.enabled;
-
     this.useFilter();
+    localStorage.setItem('typeFilter', JSON.stringify(this.typeFilter));
   }
 
   public selectRandom() {
