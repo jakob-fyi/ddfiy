@@ -1,1 +1,94 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --ddf-black: #000000;
+  --ddf-white: #fefefe;
+  --ddf-red: #ea141f;
+  --ddf-blue: #00acec;
+  --ddf-font: 'Roboto Condensed', Arial, Helvetica, sans;
+
+  --spotify-green: rgba(29, 185, 84, 1);
+}
+
+.text-ddf-red {
+  color: var(--ddf-red);
+}
+
+.text-ddf-blue {
+  color: var(--ddf-blue);
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: rgb(29, 185, 84);
+  background: linear-gradient(135deg, var(--ddf-black) 0%, var(--spotify-green) 100%);
+  color: var(--ddf-white);
+  font-family: var(--ddf-font);
+  padding: 2em;
+}
+
+.button,
+button[type=button] {
+  display: inline-block;
+  padding: 0.8em 1.8em;
+  border-radius: 999em;
+  background-color: var(--ddf-white);
+  font-weight: bold;
+  font-size: 1em;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1;
+
+  &.button--icon {
+    padding: 0.8em;
+    line-height: 0;
+
+    svg {
+      width: 2em;
+      height: 2em;
+    }
+  }
+}
+
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: url('assets/fonts/roboto-condensed-v25-latin-300.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* roboto-condensed-regular - latin */
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  src: url('assets/fonts/roboto-condensed-v25-latin-regular.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* roboto-condensed-700 - latin */
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: url('assets/fonts/roboto-condensed-v25-latin-700.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}

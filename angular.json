@@ -68,7 +68,12 @@
               "browserTarget": "ddfiy:build:production"
             },
             "development": {
-              "browserTarget": "ddfiy:build:development"
+              "browserTarget": "ddfiy:build:development",
+              "host": "ddfiy.jakob.dev",
+              "sslKey": "C:/engineering/certs/jakob.dev/jakob.dev.key",
+              "sslCert": "C:/engineering/certs/jakob.dev/jakob.dev.crt",
+              "ssl": true,
+              "port": 443
             }
           },
           "defaultConfiguration": "development"

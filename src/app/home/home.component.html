@@ -1,0 +1,49 @@
+<div class="loading">
+  <svg *ngIf="state == 'authorizing' || state == 'accessing' || state == 'loading'" class="spinner" version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+    <path fill="#fff" d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+      <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50" to="360 50 50" repeatCount="indefinite" />
+    </path>
+  </svg>
+
+  <p class="status">
+    <span *ngIf="state == 'unauthorized'">Nicht mit Spotify verbunden</span>
+    <span *ngIf="state == 'authorizing'">Starte Authorisierungsprozess mit Spotify</span>
+    <span *ngIf="state == 'accessing'">Verbinde mit Spotify</span>
+    <span *ngIf="state == 'loading'">Lade aktuelle Daten von Spotify</span>
+  </p>
+</div>
+
+<div class="folge" [ngClass]="{'placeholder': !data.selected}" *ngIf="state == 'ready'">
+  <div class="cover" [style.background-image]="'url(' + (data.selected?.images[1].url ?? '') +')'"> </div>
+  <h1 class="title">{{ data.selected?.name}}</h1>
+</div>
+
+<div class="actions">
+
+  <button type="button" (click)="authorize()" *ngIf="state == 'unauthorized'">
+    Starten mit Spotify
+  </button>
+
+  <a class="button  button--icon listen" *ngIf="data.selected" [href]="data.selected.external_urls.spotify" target="_blank">
+    <svg data-name="Layer 1" id="Layer_1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+      <path d="M256,0C114.615,0,0,114.615,0,256S114.615,512,256,512,512,397.385,512,256,397.385,0,256,0Zm89.668,347.523a13.139,13.139,0,0,1-18.24,3.551c-70.978-47.847-178.969-19.9-180.052-19.608a13.14,13.14,0,1,1-6.755-25.4c1.224-.325,30.427-7.987,69.6-9.132,52.611-1.539,98.222,9.645,131.9,32.345A13.141,13.141,0,0,1,345.668,347.523Zm25.272-56.7a15.955,15.955,0,0,1-21.982,5.094c-47.7-29.75-100.787-34.875-136.923-33.933-39.908,1.041-68.691,9.485-68.978,9.571a15.955,15.955,0,0,1-9.168-30.565c1.3-.391,32.392-9.6,76.295-10.876,58.494-1.7,112.321,11.694,155.662,38.728A15.955,15.955,0,0,1,370.94,290.827ZM400.375,224.7a19.237,19.237,0,0,1-26.05,7.853c-58.761-31.54-120.637-36.549-162.195-35.2-45.744,1.488-77.785,10.784-78.1,10.877a19.239,19.239,0,0,1-10.95-36.888c1.454-.433,36.185-10.618,86.542-12.4,66.839-2.372,130.086,11.358,182.9,39.709A19.239,19.239,0,0,1,400.375,224.7Z" />
+    </svg>
+  </a>
+  <button type="button" class="button--icon" (click)="getRandom()" *ngIf="state == 'ready'">
+    <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+      <path d="M440.88,129.37,288.16,40.62a64.14,64.14,0,0,0-64.33,0L71.12,129.37a4,4,0,0,0,0,6.9L254,243.85a4,4,0,0,0,4.06,0L440.9,136.27A4,4,0,0,0,440.88,129.37ZM256,152c-13.25,0-24-7.16-24-16s10.75-16,24-16,24,7.16,24,16S269.25,152,256,152Z" />
+      <path d="M238,270.81,54,163.48a4,4,0,0,0-6,3.46V340.86a48,48,0,0,0,23.84,41.39L234,479.48a4,4,0,0,0,6-3.46V274.27A4,4,0,0,0,238,270.81ZM96,368c-8.84,0-16-10.75-16-24s7.16-24,16-24,16,10.75,16,24S104.84,368,96,368Zm96-32c-8.84,0-16-10.75-16-24s7.16-24,16-24,16,10.75,16,24S200.84,336,192,336Z" />
+      <path d="M458,163.51,274,271.56a4,4,0,0,0-2,3.45V476a4,4,0,0,0,6,3.46l162.15-97.23A48,48,0,0,0,464,340.86V167A4,4,0,0,0,458,163.51ZM320,424c-8.84,0-16-10.75-16-24s7.16-24,16-24,16,10.75,16,24S328.84,424,320,424Zm0-88c-8.84,0-16-10.75-16-24s7.16-24,16-24,16,10.75,16,24S328.84,336,320,336Zm96,32c-8.84,0-16-10.75-16-24s7.16-24,16-24,16,10.75,16,24S424.84,368,416,368Zm0-88c-8.84,0-16-10.75-16-24s7.16-24,16-24,16,10.75,16,24S424.84,280,416,280Z" />
+    </svg>
+  </button>
+</div>
+
+<div class="filter" *ngIf="state == 'ready'">
+  <h3 class="title">Filtern</h3>
+  <div class="items">
+
+    <div class="filter-item" *ngFor="let f of data.typeFilter" [ngClass]="{'filter-item--disabled': !f.enabled}" (click)="data.toggleTypeFilter(f)">
+      {{ f.label }}
+    </div>
+  </div>
+</div>
