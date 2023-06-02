@@ -1,0 +1,11 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all ease 1s;
+}
+
+h1 {
+  margin-bottom: 2em;
+  text-align: center;
+}

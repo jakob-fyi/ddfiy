@@ -122,5 +122,4 @@ export class AuthService {
     })
     return base64url.split(",", 2)[1]
   }
-
 }

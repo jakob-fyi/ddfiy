@@ -1,0 +1,22 @@
+<header (click)="openMenu()">
+  <div class="trigger">
+    <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M80 160h352M80 256h352M80 352h352" />
+    </svg>
+  </div>
+  <div class="label">
+    <h2>Die drei ?<span class="text-ddf-red">?</span><span class="text-ddf-blue">?</span></h2>
+    <h1>Spotify Zufallsfolge</h1>
+  </div>
+</header>
+
+<div class="menu" [ngClass]="{'menu--hidden': menuHidden}">
+  <div class="content">
+    <a href="/">Zufallsfolge wählen</a>
+    <a href="/info">Informationen zur App</a>
+    <a href="https://github.com/jakob-fyi/ddfiy" target="_blank">Source Code</a>
+    <a href="/imprint">Impressum & Datenschutz</a>
+  </div>
+
+  <button type="button" (click)="closeMenu()">Schließen</button>
+</div>

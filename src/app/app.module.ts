@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { InfoComponent } from './info/info.component';
 import { ImprintComponent } from './imprint/imprint.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ImprintComponent } from './imprint/imprint.component';
     CallbackComponent,
     HomeComponent,
     InfoComponent,
-    ImprintComponent
+    ImprintComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
