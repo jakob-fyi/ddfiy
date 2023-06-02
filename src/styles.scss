@@ -6,6 +6,9 @@
   --ddf-font: 'Roboto Condensed', Arial, Helvetica, sans;
 
   --spotify-green: rgba(29, 185, 84, 1);
+
+  --link-background-color: rgba(255, 255, 255, 0.2);
+  --link-background-color-active: rgba(0, 0, 0, 0.3);
 }
 
 .text-ddf-red {
@@ -38,12 +41,46 @@ body {
   font-family: var(--ddf-font);
 }
 
+p {
+  margin-top: 0.6em;
+  margin-bottom: 0.4em;
+  text-align: justify;
+  line-height: 1.5;
+
+  a {
+    color: inherit;
+    z-index: 1;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-thickness: 8px;
+    text-decoration-color: var(--link-background-color);
+    text-underline-offset: -3px;
+    text-decoration-skip-ink: none;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+      text-decoration-color: var(--link-background-color-active);
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 1.25em;
+  margin-bottom: .5em;
+}
+
 .button,
 button[type=button] {
   display: inline-block;
   padding: 0.8em 1.8em;
   border-radius: 999em;
   background-color: var(--ddf-white);
+  color: var(--ddf-black);
   font-weight: bold;
   font-size: 1em;
   text-align: center;

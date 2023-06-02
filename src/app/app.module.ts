@@ -7,12 +7,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { InfoComponent } from './info/info.component';
+import { ImprintComponent } from './imprint/imprint.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CallbackComponent,
-    HomeComponent
+    HomeComponent,
+    InfoComponent,
+    ImprintComponent
   ],
   imports: [
     BrowserModule,
