@@ -34,21 +34,6 @@ body {
   height: 100%;
 }
 
-body {
-  background: rgb(29, 185, 84);
-  background: linear-gradient(
-    135deg,
-    var(--ddf-black) 0%,
-    rgb(var(--spotify-green)) 100%
-  );
-  color: var(--ddf-white);
-  font-family: var(--ddf-font);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 p {
   margin-top: 0.6em;
   margin-bottom: 0.4em;
@@ -80,45 +65,6 @@ h5,
 h6 {
   margin-top: 1.25em;
   margin-bottom: 0.5em;
-}
-
-#folge {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 2em;
-
-  #cover {
-    border-radius: 0.4em;
-    width: 180px;
-    height: 180px;
-    margin-bottom: 1em;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
-  #title {
-    border-radius: 0.4em;
-    min-width: 100px;
-    min-height: 1.2em;
-    text-align: center;
-    font-size: 1.15em;
-  }
-}
-
-#actions {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
-  #listen {
-    margin-right: 1em;
-
-    svg {
-      fill: rgb(var(--spotify-green));
-    }
-  }
 }
 
 button,

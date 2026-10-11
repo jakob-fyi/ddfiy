@@ -1,0 +1,121 @@
+body {
+  background: rgb(29, 185, 84);
+  background: linear-gradient(
+    135deg,
+    var(--ddf-black) 0%,
+    rgb(var(--spotify-green)) 100%
+  );
+  color: var(--ddf-white);
+  font-family: var(--ddf-font);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  header {
+    margin: 1em;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: row;
+    padding: 1em 1.35em;
+    border-radius: 0.4em;
+    box-shadow: 0px 0px 3em 0px rgba(#093a1a, 0.8);
+    transition: all ease 300ms;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+
+    .trigger {
+      margin-right: 1.3em;
+      display: none;
+
+      svg {
+        width: 2em;
+      }
+    }
+
+    .label {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+
+      h2 {
+        margin: 0;
+        font-size: 0.9em;
+        line-height: 1;
+      }
+
+      h1 {
+        margin: 0;
+        margin-top: 0.2em;
+        font-size: 1em;
+        line-height: 1;
+      }
+    }
+  }
+
+  main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1;
+    overflow: auto;
+
+    #folge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      gap: 10px;
+
+      #cover {
+        border-radius: 0.4em;
+        width: 180px;
+        height: 180px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      #nummer {
+        text-align: center;
+        font-size: 1.5em;
+        font-weight: 900;
+      }
+
+      #titel {
+        text-align: center;
+        font-size: 1.35em;
+        font-weight: bold;
+      }
+    }
+  }
+
+  footer {
+    width: 100%;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+
+    #actions {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+      #listen {
+        margin-right: 1em;
+
+        svg {
+          fill: rgb(var(--spotify-green));
+        }
+      }
+    }
+  }
+}

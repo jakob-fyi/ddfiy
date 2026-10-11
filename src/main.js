@@ -36,7 +36,8 @@ export const selectRandomAndRender = () => {
   const titel = window.document.getElementById("titel");
   const listen = window.document.getElementById("listen");
 
-  titel.innerHTML = `<h1>${folge[1]}</h1>`;
+  titel.innerHTML = folge[1];
+  nummer.innerHTML = folge[0];
   listen.setAttribute("href", `spotify:album:${folge[3]}`);
   cover.setAttribute("src", folge[2]);
 };
