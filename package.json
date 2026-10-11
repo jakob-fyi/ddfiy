@@ -1,40 +1,32 @@
 {
-  "name": "ddfiy",
-  "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "ci:build": "ng build --configuration production --output-path ./dist"
+  "name": "@jakob.fyi/ddfiy",
+  "version": "2.0.0",
+  "description": "DDFIY soll eine App für Fans sein, die sie schwer entschieden können, welche Folge der drei ??? sie als nächstes hören wollen.",
+  "homepage": "https://github.com/jakob-fyi/ddfiy#readme",
+  "bugs": {
+    "url": "https://github.com/jakob-fyi/ddfiy/issues"
   },
-  "private": true,
-  "dependencies": {
-    "@angular/animations": "^16.0.0",
-    "@angular/common": "^16.0.0",
-    "@angular/compiler": "^16.0.0",
-    "@angular/core": "^16.0.0",
-    "@angular/forms": "^16.0.0",
-    "@angular/platform-browser": "^16.0.0",
-    "@angular/platform-browser-dynamic": "^16.0.0",
-    "@angular/router": "^16.0.0",
-    "@angular/service-worker": "^16.0.0",
-    "rxjs": "~7.8.0",
-    "tslib": "^2.3.0",
-    "zone.js": "~0.13.0"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jakob-fyi/ddfiy.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "default": "src/index.html",
+  "scripts": {
+    "start": "parcel src/index.html --no-cache --open",
+    "ci:build": "parcel build src/index.html --log-level error --no-cache --no-scope-hoist --dist-dir ./dist"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^16.0.3",
-    "@angular/cli": "~16.0.3",
-    "@angular/compiler-cli": "^16.0.0",
-    "@types/jasmine": "~4.3.0",
-    "jasmine-core": "~4.6.0",
-    "karma": "~6.4.0",
-    "karma-chrome-launcher": "~3.2.0",
-    "karma-coverage": "~2.2.0",
-    "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.0.0",
-    "typescript": "~5.0.2"
+    "@parcel/packager-raw-url": "^2.16.4",
+    "@parcel/transformer-webmanifest": "^2.16.4",
+    "parcel": "^2.16.4"
+  },
+  "dependencies": {
+    "workbox-cacheable-response": "^7.4.1",
+    "workbox-expiration": "^7.4.1",
+    "workbox-routing": "^7.4.1",
+    "workbox-strategies": "^7.4.1"
   }
 }
