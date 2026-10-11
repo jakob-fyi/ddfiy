@@ -23,7 +23,7 @@ jobs:
         run: npm run ci:build
 
       - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.4.0
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.DEPLOYMENT_FTP_HOST }}
           username: ${{ secrets.DEPLOYMENT_FTP_USERNAME }}
